@@ -1,0 +1,78 @@
+{
+  "name": "low_value_chapter",
+  "draft": "本章结束后没有给后续留下任何变化。",
+  "rules": [
+    {
+      "id": "CHAPTER-001",
+      "severity": "high",
+      "blocking": true
+    }
+  ],
+  "review": {
+    "writing_quality": {
+      "score": 60,
+      "summary": "存在明确失败",
+      "gates": [
+        {
+          "gate_id": "CHAPTER-001",
+          "passed": false,
+          "severity": "high",
+          "evidence": [
+            "本章结束后没有给后续留下任何变化。"
+          ],
+          "reason": "删除本章不会损失剧情、人物、关系、知识、资源或风险变化。",
+          "repair_instruction": "仅修复该处叙事功能缺口。",
+          "analysis": {
+            "character": "主角",
+            "goal": "本章任务",
+            "obstacle": "推进不足",
+            "action": "停留原地",
+            "consequence": "无实质变化",
+            "start_state": "场景开始",
+            "end_state": "场景结束",
+            "changed_dimension": "关系",
+            "cause": "直接触发",
+            "motivation": "人物动机",
+            "next_pressure": "后续压力",
+            "current_goal": "当前目标",
+            "motive": "规避风险",
+            "timing_reason": "时机已到",
+            "action_basis": "已有线索",
+            "chapter_change": "信息更新",
+            "downstream_dependency": "后续推进依赖",
+            "speaker_goal": "试探对方",
+            "listener_goal": "隐瞒真相",
+            "resistance_or_strategy": "转移话题",
+            "emotion_claim": "紧张",
+            "observable_evidence": "手指发白",
+            "event_density": "中",
+            "function_density": "中",
+            "static_span": "无",
+            "distribution": "均匀",
+            "repeated_information": "无重复",
+            "prior_source": "本章首次",
+            "missing_or_present_novelty": "有新信息",
+            "paragraph": "正文段落",
+            "attempted_function": "推进关系",
+            "why_no_function": "无",
+            "conflict_setup": "对立已建立",
+            "resolution_basis": "付出代价",
+            "cost_or_pressure": "资源损耗",
+            "active_goal": "调查异常",
+            "state_change": "无",
+            "ending_pressure": "无尾钩",
+            "speaker_samples": "说话人样本",
+            "distinction": "声口差异"
+          },
+          "rule_id": "CHAPTER-001",
+          "confidence": 0.9,
+          "blocking": true
+        }
+      ]
+    }
+  },
+  "expected_failed_gate_ids": [
+    "CHAPTER-001"
+  ],
+  "expect_schema_valid": true
+}

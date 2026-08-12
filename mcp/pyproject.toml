@@ -1,0 +1,33 @@
+[project]
+name = "novel-production-mcp"
+version = "2.11.2"
+description = "Local-first novel production MCP server with routed external models and consistency gates"
+requires-python = ">=3.11"
+dependencies = [
+  "mcp>=1.27,<2",
+  "PyYAML>=6.0,<7",
+  "pydantic>=2.7,<3",
+  "pypdf>=5,<7",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<9"]
+
+[project.scripts]
+novel-production-mcp = "novel_production_mcp.server:main"
+novel-production = "novel_production_mcp.cli:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/novel_production_mcp"]
+
+[tool.hatch.build.targets.wheel.force-include]
+"../assets/writing_doctrine" = "novel_production_mcp/writing_assets"
+"../assets/planning-terminology.yaml" = "novel_production_mcp/planning-terminology.yaml"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

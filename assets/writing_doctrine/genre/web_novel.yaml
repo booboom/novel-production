@@ -1,0 +1,18 @@
+rules:
+  - id: WEB-001
+    name: 中文网文章节保持持续压力
+    domain: pacing
+    description: 章节以持续目标、局势变化和未完成压力维持阅读动力，不机械追求打脸或高强度刺激。
+    stage: [writer, reviewer, repairer]
+    check_type: semantic
+    severity: medium
+    blocking: false
+    criteria:
+      - 本章目标在行动中推进或升级
+      - 章末压力来自未完成目标、代价或新选择，不来自空泛宣言
+      - 避免连续静态章节和大量总结性内心独白
+    evidence_required: [active_goal, state_change, ending_pressure]
+    repair_instruction: 用已有冲突的未完成后果或下一项具体选择替代模板化章末感慨。
+    applies_when: {}
+    source_refs: [{reference_id: genre-profile, section: web-novel}]
+    enabled: true

@@ -1,0 +1,85 @@
+# Hybrid profile: NexaPortAI handles planning/review/extraction; Ollama handles prose and repair.
+# Copy to ~/.config/novel-production/routes.toml if you want local prose generation.
+
+[generation]
+# external：MCP 通过 providers/route 调用模型；agent：由当前 Agent 生成并提交结果。
+mode = "external"
+
+[writing_quality]
+enabled = true
+profile = "web_novel"
+min_score = 85
+max_repair_rounds = 2
+block_high = true
+block_critical = true
+min_blocking_confidence = 0.75
+stop_on_unresolved_critical = true
+stop_on_unresolved_high = false
+allow_commit_with_warnings = true
+max_rules_per_chapter = 30
+max_rules_per_scene = 12
+max_rule_tokens = 6000
+
+[routes.director]
+provider = "nexaport"
+model = "gpt-5.6-sol"
+temperature = 0.3
+max_tokens = 12000
+retries = 1
+
+[routes.macro]
+provider = "nexaport"
+model = "gpt-5.6-sol"
+temperature = 0.35
+max_tokens = 10000
+
+[routes.world]
+provider = "nexaport"
+model = "gpt-5.6-sol"
+temperature = 0.3
+max_tokens = 10000
+
+[routes.characters]
+provider = "nexaport"
+model = "gpt-5.6-sol"
+temperature = 0.35
+max_tokens = 12000
+
+[routes.volume]
+provider = "nexaport"
+model = "gpt-5.6-sol"
+temperature = 0.35
+max_tokens = 10000
+
+[routes.outline]
+provider = "nexaport"
+model = "gpt-5.6-sol"
+temperature = 0.35
+max_tokens = 12000
+
+[routes.writer]
+provider = "ollama"
+model = "hf.co/mradermacher/Qwen3.5-27B-WebNovel-Writer-zh-GGUF:Q6_K"
+temperature = 0.85
+max_tokens = 7000
+timeout_sec = 900
+retries = 0
+
+[routes.reviewer]
+provider = "nexaport"
+model = "gpt-5.6-sol"
+temperature = 0.1
+max_tokens = 6000
+
+[routes.repairer]
+provider = "ollama"
+model = "hf.co/mradermacher/Qwen3.5-27B-WebNovel-Writer-zh-GGUF:Q6_K"
+temperature = 0.55
+max_tokens = 7000
+timeout_sec = 900
+
+[routes.extractor]
+provider = "nexaport"
+model = "gpt-5.6-sol"
+temperature = 0.0
+max_tokens = 7000

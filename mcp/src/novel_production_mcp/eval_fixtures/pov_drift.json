@@ -1,0 +1,1 @@
+{"name":"pov_drift","expected_codes":["pov_inner_state_leak"],"draft":"林雪暗暗后悔没有早点说出真相。","delta":{"pov_observations":[{"pov_character":"char_001","text_excerpt":"林雪暗暗后悔没有早点说出真相","accessed_inner_state_of":"char_002"}],"state_coverage":{"detected_changes":[],"representations":[],"untracked_changes":[]}}}

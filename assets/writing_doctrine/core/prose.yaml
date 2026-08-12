@@ -1,0 +1,18 @@
+rules:
+  - id: PROSE-001
+    name: 情绪必须通过叙事证据落地
+    domain: prose
+    description: 重要情绪通过动作、选择、感官、反应或语言策略表现，不用作者总结代替戏剧过程。
+    stage: [writer, reviewer, repairer]
+    check_type: semantic
+    severity: medium
+    blocking: false
+    criteria:
+      - 情绪判断附近有可观察证据
+      - 空泛感慨、升华和万能总结不替代人物选择
+      - 章节尾部不用模板式坚定、路还很长等句子虚构推进感
+    evidence_required: [emotion_claim, observable_evidence]
+    repair_instruction: 删除概括性情绪结论，用已有动作、停顿、选择或后果承载情绪。
+    applies_when: {}
+    source_refs: [{reference_id: core-doctrine, section: dramatized-emotion}]
+    enabled: true

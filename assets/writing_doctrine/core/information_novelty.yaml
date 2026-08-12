@@ -1,0 +1,18 @@
+rules:
+  - id: NOVELTY-001
+    name: 重复信息必须产生新价值
+    domain: information_novelty
+    description: 重述读者和人物已明确知道的信息时，必须带来新后果、新解释、新冲突、新证据、关系变化或决定变化。
+    stage: [writer, reviewer, repairer]
+    check_type: semantic
+    severity: high
+    blocking: true
+    criteria:
+      - 对照 facts、人物知识、近期章节和检索结果
+      - 区分必要提醒与无增量重复说明
+      - 对话中的共同已知信息不能只为向读者解释而重复
+    evidence_required: [repeated_information, prior_source, missing_or_present_novelty]
+    repair_instruction: 删除重复说明，或把它转化为新证据、分歧、代价、关系反应或决定改变。
+    applies_when: {}
+    source_refs: [{reference_id: core-doctrine, section: information-novelty}]
+    enabled: true

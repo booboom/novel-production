@@ -1,0 +1,51 @@
+rules:
+  - id: SCENE-001
+    name: 主要场景必须存在即时目标
+    domain: scene
+    description: 主要场景由人物主动追求一个能在当前场景实现或失败的具体结果。
+    stage: [writer, reviewer, repairer]
+    check_type: semantic
+    severity: high
+    blocking: true
+    criteria:
+      - 能指出追求目标的人物和具体目标
+      - 能指出阻力、采取的行动及行动结果
+      - 目标不能只是思考、了解情况或等待剧情发生
+    evidence_required: [character, goal, obstacle, action, consequence]
+    repair_instruction: 重构场景，使主要人物为一个具体结果采取行动并承受结果。
+    applies_when: {}
+    source_refs: [{reference_id: core-doctrine, section: scene-purpose}]
+    enabled: true
+  - id: SCENE-002
+    name: 主要场景必须产生状态变化
+    domain: scene
+    description: 场景结束时至少有一项故事状态与开始时不同。
+    stage: [writer, reviewer, repairer]
+    check_type: semantic
+    severity: high
+    blocking: true
+    criteria:
+      - 比较 start_state 与 end_state
+      - knowledge、goal、relationship、risk、resource、location、power、decision、plot_state 至少一项变化
+      - 氛围和情绪变化只有影响选择或后续压力时才计为状态变化
+    evidence_required: [start_state, end_state, changed_dimension]
+    repair_instruction: 让已有行动改变信息、决定、关系、风险或资源，不要凭空追加新事件。
+    applies_when: {}
+    source_refs: [{reference_id: core-doctrine, section: scene-change}]
+    enabled: true
+  - id: CHAPTER-001
+    name: 章节必须具有不可删除价值
+    domain: chapter_value
+    description: 删除本章应使后续故事失去可识别的剧情、人物、关系、知识、资源、风险或世界状态变化。
+    stage: [writer, reviewer, repairer]
+    check_type: semantic
+    severity: high
+    blocking: true
+    criteria:
+      - 指出本章留下的至少一个后续必要变化
+      - 变化不能只是重复已知信息或重申人物态度
+    evidence_required: [chapter_change, downstream_dependency]
+    repair_instruction: 把本章核心行动连接到一个后续必需的决定、代价、资源、关系或风险变化。
+    applies_when: {}
+    source_refs: [{reference_id: core-doctrine, section: chapter-value}]
+    enabled: true

@@ -1,0 +1,76 @@
+{
+  "name": "valid_slow_scene",
+  "draft": "雨声里，他逐页核对旧信，最终划掉父亲的名字，决定不再回信。",
+  "rules": [
+    {
+      "id": "PACING-001",
+      "severity": "high",
+      "blocking": true
+    }
+  ],
+  "review": {
+    "writing_quality": {
+      "score": 92,
+      "summary": "有明确叙事功能",
+      "gates": [
+        {
+          "gate_id": "PACING-001",
+          "passed": true,
+          "severity": "low",
+          "evidence": [
+            "雨声里，他逐页核对旧信，最终划掉父亲的名字，决定不再回信。"
+          ],
+          "reason": "虽然动作缓慢，但理解与决定持续变化。",
+          "repair_instruction": "",
+          "analysis": {
+            "character": "主角",
+            "goal": "缓慢推进",
+            "obstacle": "信息稀疏",
+            "action": "观察环境",
+            "consequence": "气氛积累",
+            "start_state": "场景开始",
+            "end_state": "场景结束",
+            "changed_dimension": "关系",
+            "cause": "直接触发",
+            "motivation": "人物动机",
+            "next_pressure": "后续压力",
+            "current_goal": "当前目标",
+            "motive": "规避风险",
+            "timing_reason": "时机已到",
+            "action_basis": "已有线索",
+            "chapter_change": "信息更新",
+            "downstream_dependency": "后续推进依赖",
+            "speaker_goal": "试探对方",
+            "listener_goal": "隐瞒真相",
+            "resistance_or_strategy": "转移话题",
+            "emotion_claim": "紧张",
+            "observable_evidence": "手指发白",
+            "event_density": "低但有功能",
+            "function_density": "气氛与压力建立",
+            "static_span": "可控",
+            "distribution": "前静后压",
+            "repeated_information": "无重复",
+            "prior_source": "本章首次",
+            "missing_or_present_novelty": "有新信息",
+            "paragraph": "正文段落",
+            "attempted_function": "推进关系",
+            "why_no_function": "无",
+            "conflict_setup": "对立已建立",
+            "resolution_basis": "付出代价",
+            "cost_or_pressure": "资源损耗",
+            "active_goal": "推进主线",
+            "state_change": "状态变化",
+            "ending_pressure": "尾钩压力",
+            "speaker_samples": "说话人样本",
+            "distinction": "声口差异"
+          },
+          "rule_id": "PACING-001",
+          "confidence": 0.95,
+          "blocking": false
+        }
+      ]
+    }
+  },
+  "expected_failed_gate_ids": [],
+  "expect_schema_valid": true
+}

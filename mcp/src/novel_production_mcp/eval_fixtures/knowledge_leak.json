@@ -1,0 +1,1 @@
+{"name":"knowledge_leak","expected_codes":["utterance_knowledge_violation"],"draft":"陈默说：“组织已经盯上我了。”","delta":{"utterances":[{"speaker":"char_001","text_excerpt":"组织已经盯上我了","asserted_fact_ids":["fact_org_identity"],"event_ids":["event_existing"]}],"state_coverage":{"detected_changes":[],"representations":[],"untracked_changes":[]}}}

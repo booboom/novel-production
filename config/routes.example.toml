@@ -1,0 +1,117 @@
+# Copy to ~/.config/novel-production/routes.toml
+#
+# 字段说明：
+# provider                 = 使用 providers.toml 中的哪个供应商
+# model                    = 发送给该供应商的模型名称
+# temperature              = 生成随机性；越低越稳定，越高越发散
+# max_tokens               = 单次最大输出 Token，不是上下文窗口
+# timeout_sec              = 单次请求超时秒数
+# retries                  = 请求失败后的重试次数
+# fallback_routes          = 可选备用路由名称列表
+# input_cost_per_million   = 可选，百万输入 Token 成本，仅用于统计
+# output_cost_per_million  = 可选，百万输出 Token 成本，仅用于统计
+#
+# 默认采用最省事的 NexaPortAI 云端单供应商方案；
+# 如需本地小说模型写正文，可改用 config/routes.hybrid.example.toml。
+
+[generation]
+# external：MCP 通过 providers/route 调用外部模型；agent：由当前 Agent 生成并提交结果。
+mode = "external"
+
+[writing_quality]
+enabled = true
+profile = "web_novel"
+min_score = 85
+max_repair_rounds = 2
+block_high = true
+block_critical = true
+min_blocking_confidence = 0.75
+stop_on_unresolved_critical = true
+stop_on_unresolved_high = false
+allow_commit_with_warnings = true
+max_rules_per_chapter = 30
+max_rules_per_scene = 12
+max_rule_tokens = 6000
+anti_fluff = true
+causality = true
+dialogue = true
+information_novelty = true
+
+# 总导演：全书方向、重大剧情决策、结局策略和全局协调。
+[routes.director]
+provider = "nexaport"
+model = "gpt-5.6-sol"
+temperature = 0.3
+max_tokens = 12000
+retries = 1
+input_cost_per_million = 0
+output_cost_per_million = 0
+
+# 宏观规划：全书结构、主线、阶段目标、高潮与结局框架。
+[routes.macro]
+provider = "nexaport"
+model = "gpt-5.6-sol"
+temperature = 0.35
+max_tokens = 10000
+
+# 世界观：世界规则、组织、地点、力量体系、社会结构。
+[routes.world]
+provider = "nexaport"
+model = "gpt-5.6-sol"
+temperature = 0.3
+max_tokens = 10000
+
+# 人物：人物档案、性格、背景、成长线、目标、秘密和关系基础。
+[routes.characters]
+provider = "nexaport"
+model = "gpt-5.6-sol"
+temperature = 0.35
+max_tokens = 12000
+
+# 卷纲：把全书规划拆成各卷目标、冲突、转折和章节范围。
+[routes.volume]
+provider = "nexaport"
+model = "gpt-5.6-sol"
+temperature = 0.35
+max_tokens = 10000
+
+# 拆章：把卷纲拆成具体章节任务、推进点、伏笔和章节钩子。
+[routes.outline]
+provider = "nexaport"
+model = "gpt-5.6-sol"
+temperature = 0.35
+max_tokens = 12000
+
+# 正文写作：真正生成小说正文。
+[routes.writer]
+provider = "nexaport"
+model = "gpt-5.6-sol"
+temperature = 0.85
+max_tokens = 7000
+timeout_sec = 900
+retries = 0
+
+# 独立审校：检查 OOC、逻辑、知识泄露、时间线、道具、伏笔和连续性。
+[routes.reviewer]
+provider = "nexaport"
+model = "gpt-5.6-sol"
+temperature = 0.1
+max_tokens = 6000
+
+# 定点修复：根据 reviewer 的问题清单只修改有问题的部分。
+[routes.repairer]
+provider = "nexaport"
+model = "gpt-5.6-sol"
+temperature = 0.55
+max_tokens = 7000
+timeout_sec = 900
+
+# 状态提取：从正文抽取人物、知识、关系、时间线、道具、能力、剧情、伏笔和完结状态变化。
+[routes.extractor]
+provider = "nexaport"
+model = "gpt-5.6-sol"
+temperature = 0.0
+max_tokens = 7000
+timeout_sec = 600
+retries = 1
+# 524/超时会在接管分析层自动缩小多章节批次；fallback_routes 可配置更快或本地备用模型。

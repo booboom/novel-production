@@ -1,0 +1,13 @@
+interface:
+  display_name: "长篇小说生产引擎"
+  short_description: "长篇小说策划续写、Writing Doctrine、文学质量门禁与正典事务"
+  brand_color: "#6D5DFB"
+  default_prompt: "使用 novel-production skill 管理当前小说工作区；先执行环境检查；写章时按场景元数据和索引精准选择 Writing Rule Cards，以证据与置信度执行可收敛文学审校和定点修复，同时保持全部 Canon、Ending Plan 和事务门禁。"
+policy:
+  allow_implicit_invocation: true
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "novel_production"
+      description: "Novel Production local MCP server"
+      transport: "stdio"

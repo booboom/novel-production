@@ -1,0 +1,18 @@
+rules:
+  - id: ANTI-FLUFF-001
+    name: 段落必须承担叙事功能
+    domain: anti_fluff
+    description: 每个段落至少推进事件、揭示人物、增加冲突、提供必要信息、改变关系/状态、铺垫回收或建立必要气氛/战术信息之一。
+    stage: [writer, reviewer, repairer]
+    check_type: semantic
+    severity: high
+    blocking: true
+    criteria:
+      - 标记 no_function_paragraph 时必须引用具体段落
+      - 区分必要环境/情绪描写与 generic_reflection、repeated_emotion、generic_summary、empty_transition、restated_information、authorial_explanation
+      - 不能仅因描写慢或没有动作就判定为废话
+    evidence_required: [paragraph, attempted_function, why_no_function]
+    repair_instruction: 删除、合并无功能段落，或让它改变信息、人物、冲突、气氛压力或故事状态。
+    applies_when: {}
+    source_refs: [{reference_id: core-doctrine, section: anti-fluff}]
+    enabled: true

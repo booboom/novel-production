@@ -1,0 +1,18 @@
+rules:
+  - id: CHARACTER-001
+    name: 重要行动必须来自人物动机
+    domain: character
+    description: 人物行动由其当前目标、知识、利益和风险判断驱动，而不是由作者需要驱动。
+    stage: [writer, reviewer, repairer]
+    check_type: semantic
+    severity: high
+    blocking: true
+    criteria:
+      - 能回答人物现在想要什么以及为什么想要
+      - 能回答为什么采用这个行动以及为什么现在行动
+      - 行动符合人物可知信息、性格底线、利益和风险判断
+    evidence_required: [character, current_goal, motive, timing_reason, action_basis]
+    repair_instruction: 用已有目标、压力或代价建立行动理由；无法建立时删除或替换该行动。
+    applies_when: {}
+    source_refs: [{reference_id: core-doctrine, section: character-motivation}]
+    enabled: true

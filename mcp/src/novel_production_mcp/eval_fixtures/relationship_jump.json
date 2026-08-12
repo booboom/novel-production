@@ -1,0 +1,1 @@
+{"name":"relationship_jump","expected_codes":["relationship_jump"],"draft":"两人忽然成了生死之交。","delta":{"relationship_updates":[{"source":"char_001","target":"char_002","trust_delta":80,"event_ids":[]}],"state_coverage":{"detected_changes":[],"representations":[],"untracked_changes":[]}}}

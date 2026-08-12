@@ -1,0 +1,35 @@
+rules:
+  - id: CAUSALITY-001
+    name: 主要事件必须形成因果链
+    domain: causality
+    description: 事件之间要能用 because / therefore / but 解释，不能只是按时间并排发生。
+    stage: [writer, reviewer, repairer]
+    check_type: semantic
+    severity: high
+    blocking: true
+    criteria:
+      - 主要行动有 cause 与 motivation
+      - 行动产生 consequence，并形成 next_pressure
+      - 巧合最多制造问题，不能无代价地替人物解决核心问题
+    evidence_required: [cause, motivation, action, consequence, next_pressure]
+    repair_instruction: 在断裂事件间补人物可执行的选择、阻力或后果，或删除无因果支撑的事件。
+    applies_when: {}
+    source_refs: [{reference_id: core-doctrine, section: causality-chain}]
+    enabled: true
+  - id: CONFLICT-001
+    name: 重大冲突不能廉价解决
+    domain: conflict_resolution
+    description: 已建立的重大冲突不能立即靠一句解释、巧合或无铺垫外援消失。
+    stage: [writer, reviewer, repairer]
+    check_type: semantic
+    severity: high
+    blocking: true
+    criteria:
+      - 解决方式来自此前建立的能力、资源、关系或选择
+      - 解决付出与冲突规模相称的代价或留下后续压力
+      - 外援介入必须有可回溯铺垫且不能替人物完成全部关键选择
+    evidence_required: [conflict_setup, resolution_basis, cost_or_pressure]
+    repair_instruction: 延迟解决或让既有选择和资源承担解决代价，删除无铺垫救场。
+    applies_when: {scene_types: [conflict, negotiation]}
+    source_refs: [{reference_id: core-doctrine, section: earned-resolution}]
+    enabled: true

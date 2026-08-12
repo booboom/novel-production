@@ -1,0 +1,195 @@
+version: 1
+
+# This file is the single source of truth for reusable planning terminology.
+# Names and aliases are reviewer/repairer-only unless a chapter outline explicitly
+# lists an exact phrase in reader_visible_terms.
+terms:
+  anomaly_evidence_layers:
+    name: 异常证据分层
+    aliases:
+      - 普通解释
+      - 异常解释
+      - 待核解释
+      - 异常先验证后接受
+    prose_policy: contextual
+    always_active: false
+    warning_occurrences: 2
+    blocking_occurrences: 3
+    writer_replacements:
+      普通解释: 可以由现有证据核验的具体可能性
+      异常解释: 暂时无法由现有证据充分说明的可能性
+      待核解释: 尚待核实的可能性
+      异常先验证后接受: 先核对可验证证据，再决定如何理解异常
+    writer_instruction: >-
+      面对异常时，让人物直接提出并核对录入、搬运、时间、来源、设备或现场条件等具体可能性；
+      不要用分类标签、编号清单或反复复唱来代替推理。
+    reviewer_instruction: >-
+      检查正文是否把异常分析方法机械写成人物反复念出的分类标签；一次自然提及可以成立，
+      但高频复唱、标签加编号或用标签代替具体证据变化属于规划术语字面化。
+    repair_instruction: >-
+      保留具体假设、证据、排除结果和人物决定；删除重复分类标签及编号式复唱，
+      不得把原标签简单换成另一套抽象标签。
+
+  reaction_logic:
+    name: 异常反应逻辑
+    aliases:
+      - 反应桥梁
+      - 反应链
+      - 察觉→本能/情绪反应→判断或试探→行动
+    prose_policy: internal_only
+    always_active: true
+    warning_occurrences: 1
+    blocking_occurrences: 1
+    writer_replacements:
+      反应桥梁: 符合人物处境的即时反应与行动依据
+      反应链: 人物从察觉到行动的自然过程
+      察觉→本能/情绪反应→判断或试探→行动: 人物先察觉并作出符合处境的反应，再判断和行动
+    writer_instruction: >-
+      通过人物可观察的迟疑、警惕、试探、回避、寻找来源或有依据地继续行动来呈现其反应，
+      不要说明正在执行某种审校步骤。
+    reviewer_instruction: 检查正文是否出现异常反应审校的名称、箭头清单或制作说明。
+    repair_instruction: 删除审校名称和步骤说明，只保留人物当时真正发生的感受、判断和动作。
+
+  narrative_orientation:
+    name: 读者任务定向
+    aliases:
+      - 任务定向
+      - 最小因果闭环
+      - reader_orientation
+    prose_policy: internal_only
+    always_active: true
+    warning_occurrences: 1
+    blocking_occurrences: 1
+    writer_replacements:
+      任务定向: 让读者理解人物为何在此刻采取当前行动
+      最小因果闭环: 足以理解当前任务来源、时限、代价和方法的必要信息
+      reader_orientation: 当前任务的必要背景
+    writer_instruction: >-
+      在关键行动前自然交代任务来源、对象、当前触发、失败代价和方法依据；
+      不要把这些要素写成制作清单或审校术语。
+    reviewer_instruction: 检查正文是否自然建立任务因果，而不是让人物复述任务定向清单。
+    repair_instruction: 用通知、物件、即时后果、人物选择或自然对话补足缺口，删除制作清单措辞。
+
+  narrative_timing:
+    name: 叙事时序控制
+    aliases:
+      - 叙事时序
+      - 首次允许出现
+      - narrative_timing
+      - future_plan_leak
+    prose_policy: internal_only
+    always_active: true
+    warning_occurrences: 1
+    blocking_occurrences: 1
+    writer_replacements:
+      叙事时序: 信息在故事中的自然出现顺序
+      首次允许出现: 当前已经具备铺垫的信息
+      narrative_timing: 当前已经具备铺垫的信息范围
+      future_plan_leak: 提前出现的未来信息
+    writer_instruction: 只使用当前已经建立的信息，不要在正文中解释信息何时被规划为可出现。
+    reviewer_instruction: 检查正文是否泄漏规划时点、未来章节安排或叙事控制术语。
+    repair_instruction: 删除制作层时序说明，并把内容限制在当前已建立的信息范围内。
+
+  writing_quality_system:
+    name: 写作质量系统
+    aliases:
+      - Writing Gate
+      - Writing Quality Gate
+      - Writing Rule Card
+      - Rule Card
+      - failed_gate_ids
+      - 质量门禁
+      - 审校门禁
+    prose_policy: internal_only
+    always_active: true
+    warning_occurrences: 1
+    blocking_occurrences: 1
+    writer_replacements:
+      Writing Gate: 写作要求
+      Writing Quality Gate: 写作要求
+      Writing Rule Card: 写作要求
+      Rule Card: 写作要求
+      failed_gate_ids: 需要修复的问题
+      质量门禁: 写作要求
+      审校门禁: 审校要求
+    writer_instruction: 执行收到的写作要求，但不要在正文中提及规则、评分、门禁、审校或制作流程。
+    reviewer_instruction: 检查正文是否出现写作规则名称、规则 ID、评分、门禁或审校流程说明。
+    repair_instruction: 删除制作流程和审校措辞，将其转化为人物行动、冲突、选择、代价和后果。
+
+  profile_literalization:
+    name: 角色档案字面化
+    aliases:
+      - 角色档案不得字面化
+      - 档案字面化
+      - profile_literalization
+      - 人物不是升级资源
+    prose_policy: internal_only
+    always_active: true
+    warning_occurrences: 1
+    blocking_occurrences: 1
+    writer_replacements:
+      角色档案不得字面化: 只通过当前冲突中的自然选择表现人物
+      档案字面化: 生硬复述人物设定
+      profile_literalization: 生硬复述人物设定
+      人物不是升级资源: 人物拥有独立目标、底线和拒绝权
+    writer_instruction: 只通过当前场景中的自然选择表现人物倾向，不要复述档案字段或设定口号。
+    reviewer_instruction: 检查正文是否复述人物档案措辞，或让人物承担只为展示档案而出现的动作和台词。
+    repair_instruction: 删除档案措辞和强演动作，保留当前冲突中有独立因果的选择与后果。
+
+  semantic_audits:
+    name: 语义审计体系
+    aliases:
+      - knowledge_provenance_audit
+      - authorization_audit
+      - outline_fidelity_audit
+      - reasoning_chain_audit
+      - state_coverage_audit
+      - repetition_audit
+      - 知识来源审计
+      - 权限因果审计
+      - 推理链审计
+      - 状态覆盖审计
+      - 重复度审计
+    prose_policy: internal_only
+    always_active: true
+    warning_occurrences: 1
+    blocking_occurrences: 1
+    writer_replacements:
+      knowledge_provenance_audit: 人物能够知道该信息的正文依据
+      authorization_audit: 人物执行受限操作的现实依据
+      outline_fidelity_audit: 当前章节已经确定的任务与边界
+      reasoning_chain_audit: 人物从证据得出判断的过程
+      state_coverage_audit: 本章真实发生的状态变化
+      repetition_audit: 与近期内容相比是否有新的推进
+      知识来源审计: 信息来源核对
+      权限因果审计: 操作权限核对
+      推理链审计: 推理依据核对
+      状态覆盖审计: 状态变化核对
+      重复度审计: 重复内容核对
+    writer_instruction: 保证知识、权限、推理、状态变化和章节推进成立，但不要提及任何审计名称或审计字段。
+    reviewer_instruction: 检查正文是否把语义审计字段、审计名称或制作过程写进叙述和对白。
+    repair_instruction: 删除审计名称，保留对应的事实来源、权限依据、推理前提、状态变化或推进结果。
+
+  production_artifacts:
+    name: 小说生产制品
+    aliases:
+      - 章节包
+      - 导演提案
+      - 审校规范
+      - 制作术语
+      - rhythm_signature
+      - 节奏签名
+    prose_policy: internal_only
+    always_active: true
+    warning_occurrences: 1
+    blocking_occurrences: 1
+    writer_replacements:
+      章节包: 当前章节已经确定的事实与任务
+      导演提案: 故事规划
+      审校规范: 写作要求
+      制作术语: 内部写作说明
+      rhythm_signature: 近期章节的节奏差异
+      节奏签名: 近期章节的节奏差异
+    writer_instruction: 使用收到的材料约束正文，但不得让故事人物知道内部材料或结构设计的存在。
+    reviewer_instruction: 检查正文是否打破叙事层级，直接提及小说生产制品或结构字段。
+    repair_instruction: 删除生产制品名称，将其还原为故事内可观察的行动、信息和后果。

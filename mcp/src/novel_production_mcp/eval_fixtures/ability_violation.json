@@ -1,0 +1,1 @@
+{"name":"ability_violation","expected_codes":["ability_use_without_ownership"],"draft":"陈默挥剑使出天外飞仙。","delta":{"ability_events":[{"character_id":"char_001","ability_id":"ability_sword_mastery","action":"use","event_ids":[]}],"state_coverage":{"detected_changes":[],"representations":[],"untracked_changes":[]}}}

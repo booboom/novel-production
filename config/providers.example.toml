@@ -1,0 +1,37 @@
+# Copy to ~/.config/novel-production/providers.toml
+#
+# 字段说明：
+# base_url        = 供应商的 OpenAI 兼容 API 地址
+# api_key_env     = API Key 对应的环境变量名称，不是 Key 本身
+# allow_empty_key = 是否允许没有 API Key 时继续调用；true 适合本地服务，false 适合远程 API
+# api_mode        = 请求协议："chat_completions" -> /v1/chat/completions；"responses" -> /v1/responses
+# stream          = 是否使用 SSE 流式请求；v2.7 默认 true，供应商不支持时可设为 false
+# extra_headers   = 可选的额外 HTTP 请求头，仅建议放非敏感固定值
+#
+# v2.7 默认会从 ~/.config/novel-production/.env 自动加载密钥，
+# 因此不再要求手动 export/source；安装器会用 0600 权限保存 .env。
+
+[providers.ollama]
+base_url = "http://127.0.0.1:11434/v1"
+api_key_env = "OLLAMA_API_KEY"
+allow_empty_key = true
+api_mode = "chat_completions"
+stream = true
+
+[providers.omlx]
+base_url = "http://127.0.0.1:8000/v1"
+api_key_env = "OMLX_API_KEY"
+allow_empty_key = true
+api_mode = "chat_completions"
+stream = true
+
+[providers.nexaport]
+base_url = "https://api.nexaportai.com/v1"
+api_key_env = "NEXAPORT_API_KEY"
+allow_empty_key = false
+api_mode = "responses"
+stream = true
+
+# Optional static non-secret headers:
+# [providers.nexaport.extra_headers]
+# X-Client = "novel-production"

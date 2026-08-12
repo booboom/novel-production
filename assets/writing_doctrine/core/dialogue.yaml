@@ -1,0 +1,35 @@
+rules:
+  - id: DIALOGUE-001
+    name: 重要对话必须改变局势
+    domain: dialogue
+    description: 对话双方带着目标、阻力和策略交流，并产生信息、关系、决定或风险后果。
+    stage: [writer, reviewer, repairer]
+    check_type: semantic
+    severity: high
+    blocking: true
+    criteria:
+      - 能指出 speaker_goal 与 listener_goal
+      - 存在抵抗、策略、潜台词或信息不对称中的至少一种
+      - 不是双方互相解释都知道的事情或问一句答一句的信息采访
+      - 对话结束后信息、关系、决定或风险发生变化
+    evidence_required: [speaker_goal, listener_goal, resistance_or_strategy, consequence]
+    repair_instruction: 给双方不同目标和隐瞒/拒绝/交换策略，删除重复已知信息，让对话形成决定或代价。
+    applies_when: {min_participants: 2}
+    source_refs: [{reference_id: core-doctrine, section: purposeful-dialogue}]
+    enabled: true
+  - id: DIALOGUE-002
+    name: 角色声音必须可区分
+    domain: dialogue
+    description: 主要说话人的措辞、句法、回避方式和压力反应应符合各自档案与当前关系。
+    stage: [writer, reviewer, repairer]
+    check_type: semantic
+    severity: medium
+    blocking: false
+    criteria:
+      - 说话方式体现不同目标、身份、关系与压力
+      - 不让所有角色使用相同解释节奏和总结口吻
+    evidence_required: [speaker_samples, distinction]
+    repair_instruction: 保留信息内容，只调整不同人物的策略、措辞、句长和回避方式。
+    applies_when: {min_participants: 2}
+    source_refs: [{reference_id: core-doctrine, section: character-voice}]
+    enabled: true

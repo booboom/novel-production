@@ -1,0 +1,16 @@
+# Project-scoped example: copy to <your-project>/.codex/config.toml
+# Replace the absolute paths. Trusted projects only.
+
+[mcp_servers.novel_production]
+command = "uv"
+args = ["--directory", "/ABSOLUTE/PATH/novel-production-skill-v2.6.0/mcp", "run", "novel-production-mcp"]
+env_vars = ["NEXAPORT_API_KEY", "OLLAMA_API_KEY", "OMLX_API_KEY"]
+startup_timeout_sec = 30
+tool_timeout_sec = 1800
+enabled = true
+required = false
+default_tools_approval_mode = "writes"
+
+[mcp_servers.novel_production.env]
+NOVEL_WORKSPACE_ROOT = "/Users/YOUR_NAME/Documents/Novels"
+NOVEL_CONFIG_DIR = "/Users/YOUR_NAME/.config/novel-production"

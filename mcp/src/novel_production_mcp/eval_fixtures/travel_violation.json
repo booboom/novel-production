@@ -1,0 +1,1 @@
+{"name":"travel_violation","expected_codes":["travel_time_violation"],"draft":"五分钟后，他抵达城北。","delta":{"timeline_events":[{"id":"event_ch001_001","time":"2026-01-01T20:05:00+08:00","location_id":"loc_north","participants":["char_001"],"summary":"抵达城北"}],"state_coverage":{"detected_changes":[],"representations":[],"untracked_changes":[]}}}

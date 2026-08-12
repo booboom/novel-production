@@ -1,0 +1,19 @@
+rules:
+  - id: PACING-001
+    name: 章节节奏必须由有效变化构成
+    domain: pacing
+    description: 节奏通过有效事件和场景功能密度判断，不以快慢或段落字数机械定罪。
+    stage: [writer, reviewer, repairer]
+    check_type: semantic
+    severity: medium
+    blocking: false
+    criteria:
+      - 评估有效事件密度和场景功能密度
+      - 识别连续静态段落、重复信息比例和冲突持续时间
+      - setup、escalation、payoff 的分布符合本章任务
+      - 慢场景只要持续改变理解、关系或决定即可通过
+    evidence_required: [event_density, function_density, static_span, distribution]
+    repair_instruction: 合并重复段落，把篇幅转给阻力、选择、后果或必要气氛，不机械加快慢场景。
+    applies_when: {}
+    source_refs: [{reference_id: core-doctrine, section: functional-pacing}]
+    enabled: true

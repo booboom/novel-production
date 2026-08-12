@@ -1,0 +1,1 @@
+{"name":"item_revival","expected_codes":["inventory_negative_balance"],"draft":"他再次使用已经耗尽的药剂。","delta":{"inventory_events":[{"id":"itemevt_ch001_001","item_id":"item_potion","character_id":"char_001","action":"consume","quantity":1,"event_ids":[]}],"state_coverage":{"detected_changes":[],"representations":[],"untracked_changes":[]}}}

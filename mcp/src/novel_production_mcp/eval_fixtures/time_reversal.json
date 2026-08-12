@@ -1,0 +1,1 @@
+{"name":"time_reversal","expected_codes":["timeline_reversal"],"draft":"时间回到了之前。","delta":{"timeline_events":[{"id":"event_ch001_002","time":"2026-01-01T19:00:00+08:00","location_id":"loc_dorm","participants":["char_001"],"summary":"倒退"}],"state_coverage":{"detected_changes":[],"representations":[],"untracked_changes":[]}}}

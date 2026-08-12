@@ -1,0 +1,78 @@
+{
+  "name": "cheap_resolution",
+  "draft": "追兵封死出口，陌生人突然出现并一句话让所有人离开。",
+  "rules": [
+    {
+      "id": "CONFLICT-001",
+      "severity": "high",
+      "blocking": true
+    }
+  ],
+  "review": {
+    "writing_quality": {
+      "score": 60,
+      "summary": "存在明确失败",
+      "gates": [
+        {
+          "gate_id": "CONFLICT-001",
+          "passed": false,
+          "severity": "high",
+          "evidence": [
+            "追兵封死出口，陌生人突然出现并一句话让所有人离开。"
+          ],
+          "reason": "重大冲突由无铺垫外援立即解决。",
+          "repair_instruction": "仅修复该处叙事功能缺口。",
+          "analysis": {
+            "character": "主角",
+            "goal": "解决冲突",
+            "obstacle": "对手拒绝让步",
+            "action": "强行收束",
+            "consequence": "冲突被廉价解决",
+            "start_state": "场景开始",
+            "end_state": "场景结束",
+            "changed_dimension": "关系",
+            "cause": "直接触发",
+            "motivation": "人物动机",
+            "next_pressure": "后续压力",
+            "current_goal": "当前目标",
+            "motive": "规避风险",
+            "timing_reason": "时机已到",
+            "action_basis": "已有线索",
+            "chapter_change": "信息更新",
+            "downstream_dependency": "后续推进依赖",
+            "speaker_goal": "试探对方",
+            "listener_goal": "隐瞒真相",
+            "resistance_or_strategy": "转移话题",
+            "emotion_claim": "紧张",
+            "observable_evidence": "手指发白",
+            "event_density": "中",
+            "function_density": "中",
+            "static_span": "无",
+            "distribution": "均匀",
+            "repeated_information": "无重复",
+            "prior_source": "本章首次",
+            "missing_or_present_novelty": "有新信息",
+            "paragraph": "正文段落",
+            "attempted_function": "推进关系",
+            "why_no_function": "无",
+            "conflict_setup": "对立双方已对峙",
+            "resolution_basis": "对手突然认输",
+            "cost_or_pressure": "几乎无代价",
+            "active_goal": "推进主线",
+            "state_change": "状态变化",
+            "ending_pressure": "尾钩压力",
+            "speaker_samples": "说话人样本",
+            "distinction": "声口差异"
+          },
+          "rule_id": "CONFLICT-001",
+          "confidence": 0.9,
+          "blocking": true
+        }
+      ]
+    }
+  },
+  "expected_failed_gate_ids": [
+    "CONFLICT-001"
+  ],
+  "expect_schema_valid": true
+}
