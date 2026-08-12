@@ -23,12 +23,14 @@ def test_release_version_is_consistent_across_distribution_metadata() -> None:
     pyproject = tomllib.loads((ROOT / "mcp" / "pyproject.toml").read_text(encoding="utf-8"))
     package_init = (ROOT / "mcp" / "src" / "novel_production_mcp" / "__init__.py").read_text(encoding="utf-8")
     changelog = (ROOT / "CHANGELOG.md").read_text(encoding="utf-8")
-    readme = (ROOT / "README.md").read_text(encoding="utf-8")
+    _readme = (ROOT / "README.md").read_text(encoding="utf-8")
     skill = (ROOT / "SKILL.md").read_text(encoding="utf-8")
 
     assert pyproject["project"]["version"] == EXPECTED_VERSION
     assert re.search(rf'__version__\s*=\s*"{re.escape(EXPECTED_VERSION)}"', package_init)
     assert changelog.startswith(f"# Changelog\n\n## {EXPECTED_VERSION} - ")
-    assert readme.startswith(f"# Novel Production Skill + MCP v{EXPECTED_VERSION}\n")
+    assert _readme.startswith("# Novel Production Skill + MCP\n")
+    assert f"v{EXPECTED_VERSION}" not in _readme
+    assert "CHANGELOG.md" in _readme
     assert f"# Novel Production v{EXPECTED_VERSION.rsplit('.', 1)[0]}\n" in skill
     assert _load_environment_checker_version() == EXPECTED_VERSION
