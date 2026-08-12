@@ -209,10 +209,3 @@ Writing Gate 以「规则 blocking + severity + confidence + 正文证据」共�
 - 续写规划支持分批生成与断点续跑，不覆盖已有逐章大纲
 - MCP 工具统一进度执行器：阶段进度 + 心跳；完成响应返回状态摘要，长结果落盘压缩
 
-## 测试
-
-执行身份：macOS 当前普通用户，不加 `sudo`。
-
-```bash
-./scripts/run_tests.sh
-```
